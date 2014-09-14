@@ -9,10 +9,12 @@ public class GettingStarted {
 	
 	public static void main(String[] args) {
 		
-		HazelcastInstance hazelcastInstance = Hazelcast.newHazelcastInstance();
+		// or if you already started an instance named "instance1"
+		// HazelcastInstance hazelcastInstance = Hazelcast.getHazelcastInstanceByName( "instance1" );
+		HazelcastInstance hazelcastInstance = Hazelcast.newHazelcastInstance();//
 		Map<Integer, String> customers = hazelcastInstance.getMap( "customers" );	
 		
-		for (int j=0;j<1000;j++) {
+		for (int j=0;j<500;j++) {
 			customers.put(j, "value "+j);
 		}
 		
